@@ -1,7 +1,6 @@
-'use strict';
+// 'use strict';
 let players = ["player_1", "player_2", "player_3", "player_4"];
 let cell_count = [-1, -1, -1, -1];
-let six_case = 0;
 console.log(cell_count);
 let i = 0;
 
@@ -30,16 +29,32 @@ document.querySelector('.start').addEventListener('click', function () {
         if (number === 6) {
             // if player still  in lobby
             if (cell_count[i] === -1) {
-
                 // move player to home
                 cell_count[i] = 0;
-                six_case = cell_count[i];
+
 
             }
             else {
+
+                document.querySelector('.grid-item' + (cell_count[i] ? cell_count[i] : cell_count[i] + 1)).style.backgroundColor = '#0000ff';
+
                 // if player not in lobby
                 cell_count[i] = cell_count[i] + 6;
-                if (cell_count[i] == 100) {
+
+                if (i === 0) {
+                    document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+                }
+                if (i === 1) {
+                    document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+                }
+                if (i === 2) {
+                    document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+                }
+                if (i === 3) {
+                    document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+                }
+
+                if (cell_count[i] >= 100) {
                     alert("Game Over hehe!");
                 }
             }
@@ -55,9 +70,27 @@ document.querySelector('.start').addEventListener('click', function () {
             }
             else {
 
+                document.querySelector('.grid-item' + (cell_count[i] ? cell_count[i] : cell_count[i] + 1)).style.backgroundColor = '#0000ff';
+
+
                 // if player not in lobby and not six
                 cell_count[i] = cell_count[i] + number;
-                if (cell_count[i] == 100) {
+                // console.log('.grid-item grid-item' + (cell_count[i]));
+
+                if (i === 0) {
+                    document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+                }
+                if (i === 1) {
+                    document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+                }
+                if (i === 2) {
+                    document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+                }
+                if (i === 3) {
+                    document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+                }
+
+                if (cell_count[i] >= 100) {
                     alert("Game Over hehe!");
                 }
             }
