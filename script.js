@@ -5,6 +5,16 @@ let six_case = 0;
 console.log(cell_count);
 let i = 0;
 
+// Kaafi kaam ki cheez hehe 
+// document.addEventListener('DOMContentLoaded', function () {
+//     for (let j = 1; j <= 100; j++) {
+//         let div = document.createElement("div");
+//         div.className = "grid-item grid-item" + j;
+//         document.querySelector('.grid-container').appendChild(div);
+//     }
+// })
+
+
 // start the game fr
 document.querySelector('.start').addEventListener('click', function () {
     document.querySelector('.start').style.backgroundColor = '#60b347';
