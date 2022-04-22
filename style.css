@@ -11,6 +11,12 @@ body { height: 100%;
     /* margin: 0px; */
     border: 5px solid black;
 }
+.reset:hover{
+    background-color: green;
+}
+.dice:hover{
+    background-color: rgb(23, 0, 128);
+}
 .grid-container{
     height: 100%;
     width: 100%;
