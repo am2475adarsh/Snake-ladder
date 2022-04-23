@@ -14,13 +14,18 @@ let i = 0;
 // })
 
 
+
 // dice roll
 document.querySelector('.dice').addEventListener('click', function () {
+    document.querySelector('.reset').addEventListener('click', function () { location.reload() });
     document.querySelector('.dice').style.backgroundColor = '#c7600c';
 
     // number generator
     const number = Math.trunc(Math.random() * 6) + 1;
     console.log(number, i);
+    // document.write(number, i);
+    document.getElementById('player-roll').innerHTML = "Player " + i + "<br>" + "Dice : " + number;
+    // document.getElementById('player').innerHTML = "Player " + i;
 
     if (number === 6) {
         // if player still  in lobby
@@ -32,13 +37,13 @@ document.querySelector('.dice').addEventListener('click', function () {
         }
         else {
 
-            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#0000ff';
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
 
-            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#0000ff';
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
 
-            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#0000ff';
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
 
-            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#0000ff';
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
 
 
 
@@ -74,13 +79,13 @@ ${i + 1} Won`);
         }
         else {
 
-            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#0000ff';
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
 
-            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#0000ff';
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '##757373';
 
-            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#0000ff';
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
 
-            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#0000ff';
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
 
 
             // if player not in lobby and not six
