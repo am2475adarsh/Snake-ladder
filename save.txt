@@ -36,3 +36,388 @@ body { height: 100%;
     padding: 2rem 3rem;
     cursor: pointer;
   }
+
+
+  ---------------------------------------------------
+  // 'use strict';
+let players = ["player_1", "player_2", "player_3", "player_4"];
+let cell_count = [-1, -1, -1, -1];
+console.log(cell_count);
+let i = 0;
+
+// Kaafi kaam ki cheez hehe 
+// document.addEventListener('DOMContentLoaded', function () {
+//     for (let j = 1; j <= 100; j++) {
+//         let div = document.createElement("div");
+//         div.className = "grid-item grid-item" + j;
+//         document.querySelector('.grid-container').appendChild(div);
+//     }
+// })
+
+
+let timeout = 0;
+
+// dice roll
+document.querySelector('.dice').addEventListener('click', function () {
+
+    // clearTimeout(timeout);
+
+    document.querySelector('.reset').addEventListener('click', function () { location.reload() });
+
+    document.querySelector('.dice').style.backgroundColor = '#232031';
+    document.querySelector('.dice').style.color = '#c8c8c8';
+
+    // number generator
+    const number = Math.trunc(Math.random() * 6) + 1;
+    console.log(number, i);
+    // document.write(number, i);
+    document.getElementById('player-roll').innerHTML = "Player: " + `${i + 1}` + "<br>" + "Dice : " + number;
+
+    // timeout = setTimeout(function () {
+    //     document.getElementById('player-roll').innerHTML = "Player: " + `${i + 1}` + "<br>" + "Roll the dice";
+    // },
+    //     1300)
+
+
+    if (number === 6) {
+        // if player still  in lobby
+        if (cell_count[i] === -1) {
+            // move player to home
+            cell_count[i] = 0;
+
+
+        }
+        else {
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+
+
+
+            // if player not in lobby
+
+            // to check if player reached final 100th or not.
+            cell_count[i] = cell_count[i] + 6 > 100 ? cell_count[i] : cell_count[i] + 6;
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+            if (cell_count[i] == 100) {
+                alert(`Game Over hehe!
+${i + 1} Won`);
+            }
+        }
+        // We'll only need to increment i value if the player didn't get 6 cause if its a 6 he needs to repeat the value till the number is not = 6 
+    }
+
+    // If we didn't get 6 in dice roll.
+    if (number != 6) {
+
+        // if player in lobby and not six
+        if (cell_count[i] === -1) {
+            cell_count[i] = -1;
+        }
+
+        // snake for 22 to 19
+        else if (cell_count[i] === 22) {
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+            cell_count[i] = 19;
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+        }
+
+        // snake for 35 to 14
+        else if (cell_count[i] === 35) {
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+            cell_count[i] = 14;
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+        }
+
+        // snake for 17 to 5.
+        else if (cell_count[i] === 17) {
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+
+            cell_count[i] = 5;
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+        }
+
+        // snake for 45 to 26
+        else if (cell_count[i] === 45) {
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+
+            cell_count[i] = 26;
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+        }
+
+        // snake for 31 to 12.
+        else if (cell_count[i] === 31) {
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+
+            cell_count[i] = 12;
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+        }
+
+        // snake for 58 to 40.
+        else if (cell_count[i] === 58) {
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+
+            cell_count[i] = 40;
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+        }
+
+        // snake for 77 to 24.
+        else if (cell_count[i] === 77) {
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+            cell_count[i] = 24;
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+        }
+
+        else if (cell_count[i] === 72) {
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+
+            cell_count[i] = 54;
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+        }
+
+        else if (cell_count[i] === 95) {
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+
+            cell_count[i] = 66;
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+        }
+
+        else if (cell_count[i] === 99) {
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+
+            cell_count[i] = 2;
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+        }
+
+
+        else {
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+
+
+            // if player not in lobby and not six
+
+            // to check if player reached 100th or not.
+            cell_count[i] = cell_count[i] + number > 100 ? cell_count[i] : cell_count[i] + number;
+            // console.log('.grid-item grid-item' + (cell_count[i]));
+
+
+            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+
+
+            if (cell_count[i] == 100) {
+                alert(`Game Over hehe!
+${i + 1} Won`);
+            }
+        }
+
+        i = (++i) % 4;
+
+    }
+
+    console.log(cell_count);
+})

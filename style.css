@@ -104,3 +104,25 @@ body {
 .reset {
     transition: 0.5s;
 }
+
+pics {
+    position: relative;
+}
+
+#image_1 {
+    position: absolute;
+    height: 7.3vh;
+    width: 1.5vw;
+    z-index: 1;
+    top: 28rem;
+    left: 19.7rem;
+}
+
+#image_2 {
+    position: absolute;
+    height: 28vh;
+    width: 2vw;
+    z-index: 1;
+    top: 21.5rem;
+    left: 34.5rem;
+}
