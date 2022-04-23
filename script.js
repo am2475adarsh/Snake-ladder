@@ -14,18 +14,29 @@ let i = 0;
 // })
 
 
+let timeout = 0;
 
 // dice roll
 document.querySelector('.dice').addEventListener('click', function () {
+
+    clearTimeout(timeout);
+
     document.querySelector('.reset').addEventListener('click', function () { location.reload() });
-    document.querySelector('.dice').style.backgroundColor = '#c7600c';
+
+    document.querySelector('.dice').style.backgroundColor = '#232031';
+    document.querySelector('.dice').style.color = '#c8c8c8';
 
     // number generator
     const number = Math.trunc(Math.random() * 6) + 1;
     console.log(number, i);
     // document.write(number, i);
-    document.getElementById('player-roll').innerHTML = "Player " + i + "<br>" + "Dice : " + number;
-    // document.getElementById('player').innerHTML = "Player " + i;
+    document.getElementById('player-roll').innerHTML = "Player: " + `${i + 1}` + "<br>" + "Dice : " + number;
+
+    timeout = setTimeout(function () {
+        document.getElementById('player-roll').innerHTML = "Player: " + `${i + 1}` + "<br>" + "Roll the dice";
+    },
+        1300)
+
 
     if (number === 6) {
         // if player still  in lobby
