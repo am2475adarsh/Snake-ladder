@@ -13,6 +13,7 @@ let i = 0;
 //     }
 // })
 
+// Two player conincide waali galti.
 
 let timeout = 0;
 
@@ -35,7 +36,7 @@ document.querySelector('.dice').addEventListener('click', function () {
     // timeout = setTimeout(function () {
     //     document.getElementById('player-roll').innerHTML = "Player: " + `${i + 1}` + "<br>" + "Roll the dice";
     // },
-    //     1300)
+    //     1400)
 
 
     if (number === 6) {
@@ -48,13 +49,7 @@ document.querySelector('.dice').addEventListener('click', function () {
         }
         else {
 
-            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+            remove_color();
 
 
 
@@ -63,15 +58,7 @@ document.querySelector('.dice').addEventListener('click', function () {
             cell_count[i] = cell_count[i] + 6 > 100 ? cell_count[i] : cell_count[i] + 6;
 
 
-            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
-
-
-            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
-
-
-            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
-
-            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+            add_color();
 
             if (cell_count[i] == 100) {
                 alert(`Game Over hehe!
@@ -91,164 +78,278 @@ ${i + 1} Won`);
         else {
 
 
-
-            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+            remove_color();
 
 
             // if player not in lobby and not six
             // if player reached 100th or not.
             cell_count[i] = cell_count[i] + number > 100 ? cell_count[i] : cell_count[i] + number;
 
-            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
-
-
-            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
-
-
-            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
-
-            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
-
-            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
-
+            add_color();
 
 
             // SNAKE PART !!!!! ---------------------------------------------------
 
             // snake for 22 to 19.
             if (cell_count[i] === 22) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item22').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 19;
+
+                setTimeout(function () {
+                    add_color();
+                }, 550)
+
             }
 
             // snake for 17 to 3.
             if (cell_count[i] === 17) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item17').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 3;
+
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // snake for 31 to 12.
             if (cell_count[i] === 31) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item31').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 12;
+
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // snake for 35 to 14.
             if (cell_count[i] === 35) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item35').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 14;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // snake for 45 to 26
             if (cell_count[i] === 45) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item45').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 26;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // snake for 77 to 24.
             if (cell_count[i] === 77) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item77').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 24;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // snake for 58 to 40.
             if (cell_count[i] === 58) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item58').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 40;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // snake for 72 to 54.
             if (cell_count[i] === 72) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item72').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 54;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // snake for 95 to 66.
             if (cell_count[i] === 95) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item95').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 66;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // snake for 99 to 2. (The ultimate!)
             if (cell_count[i] === 99) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item99').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 2;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // LADDER PART !!!-------------------------------------------------------
 
-            // ladder from 2 to 18.
+            // ladder from 3 to 18.
             if (cell_count[i] === 3) {
+
+                setTimeout(function () {
+                    document.querySelector('.grid-item3').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 18;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // ladder from 8 to 28.
             if (cell_count[i] === 8) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item8').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 28;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // ladder from 11 to 30.
             if (cell_count[i] === 11) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item11').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 30;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // ladder from 32 to 52.
             if (cell_count[i] === 32) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item32').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 52;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // ladder from 56 to 76.
             if (cell_count[i] === 56) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item56').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 76;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // ladder from 79 to 82.
             if (cell_count[i] === 79) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item79').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 82;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // ladder from 71 to 91.
             if (cell_count[i] === 71) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item71').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 91;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // ladder from 74 to 94.
             if (cell_count[i] === 74) {
+                setTimeout(function () {
+                    document.querySelector('.grid-item74').style.backgroundColor = '#757373';
+                }, 400)
+
                 cell_count[i] = 94;
+                setTimeout(function () {
+                    add_color();
+                }, 550)
             }
 
             // Ladder end ---------------------------------------------------------
 
-
-            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
-
-            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
-
-
-            if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
-
-
-            if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
-
-
-            if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
-
-            if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
-
-
             if (cell_count[i] == 100) {
                 alert(`Game Over hehe!
 ${i + 1} Won`);
+
             }
+
         }
 
         i = (++i) % 4;
+
+    }
+
+    function remove_color() {
+
+        if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#757373';
+
+        if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#757373';
+
+        if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#757373';
+
+        if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#757373';
+
+    }
+
+    function add_color() {
+
+        if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+
+
+        if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+
+
+        if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+
+        if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
 
     }
 
