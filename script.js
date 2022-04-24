@@ -73,7 +73,7 @@ document.querySelector('.dice').addEventListener('click', function () {
                 if (arr.length == 0) clearInterval(yo);
                 let position = arr.shift();
 
-                if (position > -1) document.querySelector('.grid-item' + (position ? position : position + 1)).style.backgroundColor = '#757373';
+                if (position > -1) document.querySelector('.grid-item' + (position ? position : position + 1)).style.backgroundColor = cell_count.includes(position) ? add_color() : '#757373';
 
                 console.log("yo", arr);
 
@@ -123,7 +123,7 @@ ${i + 1} Won`);
                     if (arr.length == 0) clearInterval(yo);
                     let position = arr.shift();
 
-                    if (position > -1) document.querySelector('.grid-item' + (position ? position : position + 1)).style.backgroundColor = '#757373';
+                    if (position > -1) document.querySelector('.grid-item' + (position ? position : position + 1)).style.backgroundColor = cell_count.includes(position) ? add_color() : '#757373';
 
                     console.log("yo", arr);
 
