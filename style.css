@@ -22,7 +22,7 @@ body {
         inset -4px -4px 10px rgba(67, 67, 67, 0.5),
         4px 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 10%;
-    transition: 0.8s;
+    /* transition: 0.2s; */
 }
 
 .reset:hover {

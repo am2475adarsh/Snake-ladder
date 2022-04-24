@@ -20,7 +20,7 @@ let timeout = 0;
 // dice roll
 document.querySelector('.dice').addEventListener('click', function () {
 
-    // clearTimeout(timeout);
+    clearTimeout(timeout);
 
     document.querySelector('.reset').addEventListener('click', function () { location.reload() });
 
@@ -30,13 +30,14 @@ document.querySelector('.dice').addEventListener('click', function () {
     // number generator
     const number = Math.trunc(Math.random() * 6) + 1;
     console.log(number, i);
+
     // document.write(number, i);
     document.getElementById('player-roll').innerHTML = "Player: " + `${i + 1}` + "<br>" + "Dice : " + number;
 
-    // timeout = setTimeout(function () {
-    //     document.getElementById('player-roll').innerHTML = "Player: " + `${i + 1}` + "<br>" + "Roll the dice";
-    // },
-    //     1400)
+    timeout = setTimeout(function () {
+        document.getElementById('player-roll').innerHTML = "Player: " + `${i + 1}` + "<br>" + "Roll the dice";
+    },
+        1000)
 
 
     if (number === 6) {
@@ -44,6 +45,7 @@ document.querySelector('.dice').addEventListener('click', function () {
         if (cell_count[i] === -1) {
             // move player to home
             cell_count[i] = 0;
+            add_color();
 
 
         }
@@ -52,10 +54,31 @@ document.querySelector('.dice').addEventListener('click', function () {
             remove_color();
 
 
-
+            let yeh = cell_count[i];
+            let arr = [];
             // if player not in lobby
             // cell_count[i] = cell_count[i] + 6;
             cell_count[i] = cell_count[i] + 6 > 100 ? cell_count[i] : cell_count[i] + 6;
+
+
+            for (let k = yeh; k < cell_count[i]; k++) {
+
+                if (cell_count[i] > -1) document.querySelector('.grid-item' + (k ? k : k + 1)).style.backgroundColor = 'orange';
+
+                arr.push(k);
+            }
+
+
+            let yo = setInterval(function () {
+                if (arr.length == 0) clearInterval(yo);
+                let position = arr.shift();
+
+                if (position > -1) document.querySelector('.grid-item' + (position ? position : position + 1)).style.backgroundColor = '#757373';
+
+                console.log("yo", arr);
+
+            }, 130)
+
 
 
             add_color();
@@ -78,16 +101,39 @@ ${i + 1} Won`);
         else {
 
 
+
             remove_color();
-
-
             // if player not in lobby and not six
             // if player reached 100th or not.
-            cell_count[i] = cell_count[i] + number > 100 ? cell_count[i] : cell_count[i] + number;
+            // cell_count[i] = cell_count[i] + number > 100 ? cell_count[i] : cell_count[i] + number;
+
+            let yeh = cell_count[i];
+            let arr = [];
+            cell_count[i] = cell_count[i] + number;
+
+            for (let k = yeh; k < cell_count[i]; k++) {
+
+                if (cell_count[i] > -1) document.querySelector('.grid-item' + (k ? k : k + 1)).style.backgroundColor = 'orange';
+
+                arr.push(k);
+            }
+
+            if (arr[0] != 1) {
+                let yo = setInterval(function () {
+                    if (arr.length == 0) clearInterval(yo);
+                    let position = arr.shift();
+
+                    if (position > -1) document.querySelector('.grid-item' + (position ? position : position + 1)).style.backgroundColor = '#757373';
+
+                    console.log("yo", arr);
+
+                }, (arr[0] == 1 ? 1000 : 130))
+            }
+
+            // Note : if elements overlapping
+
 
             add_color();
-
-
             // SNAKE PART !!!!! ---------------------------------------------------
 
             // snake for 22 to 19.
@@ -227,6 +273,7 @@ ${i + 1} Won`);
                 setTimeout(function () {
                     add_color();
                 }, 550)
+                // break;
             }
 
             // ladder from 8 to 28.
@@ -319,11 +366,13 @@ ${i + 1} Won`);
                 alert(`Game Over hehe!
 ${i + 1} Won`);
 
-            }
 
+            }
         }
 
+
         i = (++i) % 4;
+
 
     }
 
@@ -341,17 +390,18 @@ ${i + 1} Won`);
 
     function add_color() {
 
-        if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0])).style.backgroundColor = '#60b347';
+        if (cell_count[0] > -1) document.querySelector('.grid-item' + (cell_count[0] ? cell_count[0] : cell_count[0] + 1)).style.backgroundColor = '#60b347';
 
 
-        if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1])).style.backgroundColor = '#ff0000';
+        if (cell_count[1] > -1) document.querySelector('.grid-item' + (cell_count[1] ? cell_count[1] : cell_count[1] + 1)).style.backgroundColor = '#ff0000';
 
 
-        if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2])).style.backgroundColor = '#be0095';
+        if (cell_count[2] > -1) document.querySelector('.grid-item' + (cell_count[2] ? cell_count[2] : cell_count[2] + 1)).style.backgroundColor = '#be0095';
 
-        if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3])).style.backgroundColor = '#d0df04';
+        if (cell_count[3] > -1) document.querySelector('.grid-item' + (cell_count[3] ? cell_count[3] : cell_count[3] + 1)).style.backgroundColor = '#d0df04';
 
     }
 
     console.log(cell_count);
+
 })
