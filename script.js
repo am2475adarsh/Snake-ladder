@@ -31,6 +31,7 @@ document.querySelector('.dice').addEventListener('click', function () {
     const number = Math.trunc(Math.random() * 6) + 1;
     console.log(number, i);
 
+
     // document.write(number, i);
     document.getElementById('player-roll').innerHTML = "Player: " + `${i + 1}` + "<br>" + "Dice : " + number;
 
@@ -73,6 +74,7 @@ document.querySelector('.dice').addEventListener('click', function () {
                 if (arr.length == 0) clearInterval(yo);
                 let position = arr.shift();
 
+                // for changing back color and checking of element overlapping another or not.
                 if (position > -1) document.querySelector('.grid-item' + (position ? position : position + 1)).style.backgroundColor = cell_count.includes(position) ? add_color() : '#757373';
 
                 console.log("yo", arr);
@@ -123,6 +125,7 @@ ${i + 1} Won`);
                     if (arr.length == 0) clearInterval(yo);
                     let position = arr.shift();
 
+                    // for changing back color and checking of element overlapping another or not.
                     if (position > -1) document.querySelector('.grid-item' + (position ? position : position + 1)).style.backgroundColor = cell_count.includes(position) ? add_color() : '#757373';
 
                     console.log("yo", arr);
@@ -370,8 +373,27 @@ ${i + 1} Won`);
             }
         }
 
+        let colour;
+        if (i == 0) {
+            colour = "#60b347";
+        }
+        else if (i == 1) {
+            colour = "#ff0000";
+        }
+
+        else if (i == 2) {
+            colour = "#be0095";
+        }
+        else if (i == 3) {
+            colour = "#d0df04";
+        }
+
+        document.getElementById('player-roll').style.color = colour;
 
         i = (++i) % 4;
+
+
+
 
 
     }
